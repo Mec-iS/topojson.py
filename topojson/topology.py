@@ -1,23 +1,33 @@
-# coding=utf8
-from __future__ import division
-from .mytypes import Types
-from .stitchpoles import stitch
-from .coordinatesystems import systems
-from .bounds import bound
-from .line import Line
-from .clockwise import Clock
+"""
+High-level function that coverts fully detailed coordinates into a topology. 
+
+Coordinates can be simplified using `topology(..., ..., simplify=True)`.
+"""
 from decimal import Decimal
-from .simplify import simplify_object
-from .utils import is_infinit,E
-def property_transform (outprop, key, inprop):
-        outprop[key]=inprop
-        return True
-def topology (objects, stitchPoles=True,quantization=1e4,id_key='id',property_transform=property_transform,system = False,simplify=False):
+
+from topojson.mytypes import Types
+from topojson.stitchpoles import stitch
+from topojson.coordinatesystems import systems
+from topojson.bounds import bound
+from topojson.line import Line
+from topojson.simplify import simplify_object
+from topojson.utils import is_infinit, E
+from topojson.clockwise import Clock
+
+
+def property_transform(outprop, key, inprop):
+    """"""
+    outprop[key] = inprop
+    return True
+
+
+def topology(objects,
+             stitch_poles=True, quantization=1e4, id_key='id', system=False, simplify=False):
     ln = Line(quantization)
     id_func = lambda x:x.get(id_key, None)
     if simplify:
-        objects = simplify_object(objects,simplify)
-    [x0,x1,y0,y1]=bound(objects)
+        objects = simplify_object(objects, simplify)
+    [x0, x1, y0, y1] = bound(objects)
     
     oversize = x0 < -180 - E or x1 > 180 + E or y0 < -90 - E or y1 > 90 + E
     if not system:
@@ -28,7 +38,7 @@ def topology (objects, stitchPoles=True,quantization=1e4,id_key='id',property_tr
     if system.name == 'spherical':
         if oversize:
             raise Exception(u"spherical coordinates outside of [±180°, ±90°]")
-        if stitchPoles:
+        if stitch_poles:
             stitch(objects)
             [x0,x1,y0,y1] = bound(objects)
         if x0 < -180 + E:

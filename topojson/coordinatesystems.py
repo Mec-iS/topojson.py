@@ -1,5 +1,6 @@
-# coding=utf8
-from __future__ import division
+"""
+
+"""
 from math import sqrt, pi, cos, sin, atan2, tan, atan, asin
 
 PI4 = pi / 4
@@ -109,7 +110,11 @@ class Spherical(BaseCoordinateSystem):
         b = distance(triangle[1], triangle[2])
         c = distance(triangle[2], triangle[0])
         s = (a + b + c) / 2.0
-        return 4 * atan(sqrt(max(0, tan(s / 2.0) * tan((s - a) / 2.0) * tan((s - b) / 2.0) * tan((s - c) / 2.0))))
+        return 4 * atan(
+            sqrt(
+                max([
+                    0, tan(s / 2.0) * tan((s - a) / 2.0) * tan((s - b) / 2.0) * tan((s - c) / 2.0)
+                ])))
 
     def distance(self, x0, y0, x1, y1):
         x0, y0, x1, y1 = [(n * RADIANS) for n in [x0, y0, x1, y1]]

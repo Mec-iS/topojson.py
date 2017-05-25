@@ -1,6 +1,8 @@
+"""
 #from https://github.com/omarestrella/simplify.py
-from __future__ import division
-from .mytypes import Types
+"""
+from topojson.mytypes import Types
+
 
 def getSquareDistance(p1, p2):
     """
