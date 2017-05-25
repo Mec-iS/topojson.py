@@ -1,7 +1,7 @@
 """
 #from https://github.com/omarestrella/simplify.py
 """
-from topojson.mytypes import Types
+from pytopojson.mytypes import Types
 
 
 def getSquareDistance(p1, p2):

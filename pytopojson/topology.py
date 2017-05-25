@@ -5,14 +5,14 @@ Coordinates can be simplified using `topology(..., ..., simplify=True)`.
 """
 from decimal import Decimal
 
-from topojson.mytypes import Types
-from topojson.stitchpoles import stitch
-from topojson.coordinatesystems import systems
-from topojson.bounds import bound
-from topojson.line import Line
-from topojson.simplify import simplify_object
-from topojson.utils import is_infinit, E
-from topojson.clockwise import Clock
+from pytopojson.mytypes import Types
+from pytopojson.stitchpoles import stitch
+from pytopojson.coordinatesystems import systems
+from pytopojson.bounds import bound
+from pytopojson.line import Line
+from pytopojson.simplify import simplify_object
+from pytopojson.utils import is_infinit, E
+from pytopojson.clockwise import Clock
 
 
 def property_transform(outprop, key, inprop):

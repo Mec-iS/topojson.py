@@ -1,7 +1,7 @@
 from hashlib import sha1
 
-from topojson.hashtable import Hashtable
-from topojson.utils import point_compare
+from pytopojson.hashtable import Hashtable
+from pytopojson.utils import point_compare
 
 
 class Arcs:

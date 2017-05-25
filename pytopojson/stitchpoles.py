@@ -1,4 +1,4 @@
-from topojson.mytypes import Types
+from pytopojson.mytypes import Types
 
 
 def stitch(objects, options=False):

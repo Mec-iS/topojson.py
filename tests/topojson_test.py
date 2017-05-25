@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from topojson.conversion import convert
+from pytopojson.conversion import convert
 
 
 class TestTopojson(unittest.TestCase):

@@ -2,8 +2,8 @@
 Functions to treat coordinates in a Line.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
-from topojson.arcs import Arcs
-from topojson.utils import point_compare, is_point, Strut
+from pytopojson.arcs import Arcs
+from pytopojson.utils import point_compare, is_point, Strut
 
 
 class Line:

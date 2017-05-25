@@ -1,7 +1,7 @@
 import io
 from json import load, dump
 
-from topojson.topology import topology
+from pytopojson.topology import topology
 
 
 def convert(geojson, topojson=None, object_name=False, *args, **kwargs):
